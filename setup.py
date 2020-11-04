@@ -28,7 +28,7 @@ DESCRIPTION = 'Multi-Mechanize - Performance Test Framework'
 URL = 'http://multimechanize.com'
 LICENSE = 'GNU LGPLv3'
 LONG_DESCRIPTION = open(os.path.join(this_dir, 'README.rst')).read()
-REQUIREMENTS = filter(None, open(os.path.join(this_dir, 'requirements.txt')).read().splitlines())
+REQUIREMENTS = [_f for _f in open(os.path.join(this_dir, 'requirements.txt')).read().splitlines() if _f]
 AUTHOR = 'Corey Goldberg'
 AUTHOR_EMAIL = 'corey@goldb.org'
 KEYWORDS = ('performance', 'scalability', 'load', 'test', 'testing', 'benchmark')
@@ -39,6 +39,7 @@ CLASSIFIERS = [
     'Programming Language :: Python',
     'Programming Language :: Python :: 2.6',
     'Programming Language :: Python :: 2.7',
+    'Programming Language :: Python :: 3.8',
     'Topic :: Software Development :: Testing',
     'Topic :: Software Development :: Testing :: Traffic Generation',
     'Topic :: System :: Benchmark',

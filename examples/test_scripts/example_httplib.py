@@ -6,7 +6,7 @@
 #
 
 
-import httplib
+import http.client
 import time
 
 
@@ -17,7 +17,7 @@ class Transaction(object):
 
     def run(self):
         start_timer = time.time()
-        conn = httplib.HTTPConnection('www.example.com')
+        conn = http.client.HTTPConnection('www.example.com')
         conn.request('GET', '/')
         resp = conn.getresponse()
         content = resp.read()
@@ -26,10 +26,10 @@ class Transaction(object):
         self.custom_timers['Example_Homepage'] = latency
 
         assert (resp.status == 200), 'Bad HTTP Response'
-        assert ('Example Domain' in content), 'Failed Content Verification'
+        assert (b'Example Domain' in content), 'Failed Content Verification'
 
 
 if __name__ == '__main__':
     trans = Transaction()
     trans.run()
-    print trans.custom_timers
+    print(trans.custom_timers)

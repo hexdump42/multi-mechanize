@@ -35,7 +35,7 @@ class Transaction(object):
 
         # verify responses are valid
         assert (resp.code == 200), 'Bad HTTP Response'
-        assert ('Wikipedia is a free online encyclopedia' in resp.get_data()), 'Text Assertion Failed'
+        assert (b'Wikipedia is a free online encyclopedia' in resp.get_data()), 'Text Assertion Failed'
 
         # think-time
         time.sleep(2)
@@ -58,7 +58,7 @@ class Transaction(object):
 
         # verify responses are valid
         assert (resp.code == 200), 'Bad HTTP Response'
-        assert ('foobar' in resp.get_data()), 'Text Assertion Failed'
+        assert (b'foobar' in resp.get_data()), 'Text Assertion Failed'
 
         # think-time
         time.sleep(2)
@@ -68,4 +68,4 @@ class Transaction(object):
 if __name__ == '__main__':
     trans = Transaction()
     trans.run()
-    print trans.custom_timers
+    print(trans.custom_timers)

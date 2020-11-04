@@ -27,10 +27,10 @@ class Transaction(object):
         self.custom_timers['Example_Homepage'] = latency
 
         assert (resp.code == 200), 'Bad HTTP Response'
-        assert ('Example Domain' in resp.get_data()), 'Failed Content Verification'
+        assert (b'Example Domain' in resp.get_data()), 'Failed Content Verification'
 
 
 if __name__ == '__main__':
     trans = Transaction()
     trans.run()
-    print trans.custom_timers
+    print(trans.custom_timers)

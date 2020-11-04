@@ -14,7 +14,7 @@ try:
     matplotlib.use('Agg')  # use a non-GUI backend
     from pylab import *
 except ImportError:
-    print 'ERROR: can not import Matplotlib. install Matplotlib to generate graphs'
+    print('ERROR: can not import Matplotlib. install Matplotlib to generate graphs')
 
 
 

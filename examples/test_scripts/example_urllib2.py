@@ -6,7 +6,7 @@
 #
 
 
-import urllib2
+import urllib.request
 import time
 
 
@@ -17,17 +17,17 @@ class Transaction(object):
 
     def run(self):
         start_timer = time.time()
-        resp = urllib2.urlopen('http://www.example.com/')
+        resp = urllib.request.urlopen('http://www.example.com/')
         content = resp.read()
         latency = time.time() - start_timer
 
         self.custom_timers['Example_Homepage'] = latency
 
         assert (resp.code == 200), 'Bad HTTP Response'
-        assert ('Example Domain' in content), 'Failed Content Verification'
+        assert (b'Example Domain' in content), 'Failed Content Verification'
 
 
 if __name__ == '__main__':
     trans = Transaction()
     trans.run()
-    print trans.custom_timers
+    print(trans.custom_timers)
