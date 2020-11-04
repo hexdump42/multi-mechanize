@@ -3,14 +3,16 @@
     Multi-Mechanize - Performance Test Framework
 ================================================
 
-* Copyright: (c) 2010-2013 Corey Goldberg (cgoldberg _at_ gmail.com)
+* Fork of Multi-Mechanize migrated to Py3k. Will not work with Python 2.
+* Copyright: (c) 2010-2019 Corey Goldberg (cgoldberg _at_ gmail.com)
+* 2020+ Changes: (c) 2020 Mark Rees (mark dot john dot rees _at_ gmail.com) & contributors 
 * License: GNU LGPLv3
-* Requires: Python 2.6 or 2.7
+* Requires: Python 3.6+
 
 ----
 
 :PyPI: `multi-mechanize <http://pypi.python.org/pypi/multi-mechanize>`_
-:Dev: `git repo <http://github.com/cgoldberg/multi-mechanize>`_
+:Dev: `git repo <http://github.com/hexdump42/multi-mechanize>`_
 
 ----
 
@@ -18,7 +20,7 @@
     Docs / Instructions
 ***********************
 
-* https://github.com/cgoldberg/multi-mechanize/blob/master/docs/README.rst
+* https://github.com/hexdump42/multi-mechanize/blob/master/docs/README.rst
 
 *******************
     Install / Setup
