@@ -261,7 +261,7 @@ class Results(object):
         f = open(self.results_file_name, 'rb')
         resp_stats_list = []
         for line in f:
-            fields = line.strip().split(',')
+            fields = line.decode("utf-8").strip().split(',')
 
             request_num = int(fields[0])
             elapsed_time = float(fields[1])

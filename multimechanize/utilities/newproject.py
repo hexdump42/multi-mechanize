@@ -44,7 +44,7 @@ import time
 
 class Transaction(object):
     def __init__(self):
-        pass
+        self.custom_timers = {}
 
     def run(self):
         r = random.uniform(1, 2)
@@ -55,7 +55,7 @@ class Transaction(object):
 if __name__ == '__main__':
     trans = Transaction()
     trans.run()
-    print trans.custom_timers
+    print(trans.custom_timers)
 """
 
 
