@@ -15,7 +15,7 @@ from . import reportwriterxml
 
 
 
-def output_results(results_dir, results_file, run_time, rampup, ts_interval, user_group_configs=None, xml_reports=False):
+def output_results(results_dir, results_file, run_time, rampup, ts_interval, user_group_configs=None, xml_reports=False, results_title=''):
     results = Results(results_dir + results_file, run_time)
 
     report = reportwriter.Report(results_dir)
@@ -31,7 +31,7 @@ def output_results(results_dir, results_file, run_time, rampup, ts_interval, use
     if xml_reports:
         reportwriterxml.write_jmeter_output(results.resp_stats_list, results_dir)
 
-    report.write_line('<h1>Performance Results Report</h1>')
+    report.write_line('<h1>Performance Results Report: %s</h1>' % (results_title, ))
 
     report.write_line('<h2>Summary</h2>')
 

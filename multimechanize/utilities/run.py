@@ -78,7 +78,7 @@ def run_test(project_name, cmd_opts, remote_starter=None):
 
     run_localtime = time.localtime()
     output_dir = '%s/%s/results/results_%s' % (cmd_opts.projects_dir, project_name, time.strftime('%Y.%m.%d_%H.%M.%S/', run_localtime))
-
+    output_title = '%s - %s' % (project_name, time.strftime('%Y.%m.%d %H.%M.%S', run_localtime))
     # this queue is shared between all processes/threads
     queue = multiprocessing.Queue()
     rw = resultswriter.ResultsWriter(queue, output_dir, console_logging)
@@ -136,7 +136,7 @@ def run_test(project_name, cmd_opts, remote_starter=None):
     # all agents are done running at this point
     time.sleep(.2) # make sure the writer queue is flushed
     print('\n\nanalyzing results...\n')
-    results.output_results(output_dir, 'results.csv', run_time, rampup, results_ts_interval, user_group_configs, xml_report)
+    results.output_results(output_dir, 'results.csv', run_time, rampup, results_ts_interval, user_group_configs, xml_report, results_title=output_title)
     print('created: %sresults.html\n' % output_dir)
     if xml_report:
         print('created: %sresults.jtl' % output_dir)
@@ -169,10 +169,11 @@ def run_test(project_name, cmd_opts, remote_starter=None):
 
 def rerun_results(project_name, cmd_opts, results_dir):
     output_dir = '%s/%s/results/%s/' % (cmd_opts.projects_dir, project_name, results_dir)
+    output_title = '%s - %s' % (project_name, results_dir)
     saved_config = '%s/config.cfg' % output_dir
     run_time, rampup, results_ts_interval, console_logging, progress_bar, results_database, post_run_script, xml_report, user_group_configs = configure(project_name, cmd_opts, config_file=saved_config)
     print('\n\nanalyzing results...\n')
-    results.output_results(output_dir, 'results.csv', run_time, rampup, results_ts_interval, user_group_configs, xml_report)
+    results.output_results(output_dir, 'results.csv', run_time, rampup, results_ts_interval, user_group_configs, xml_report, results_title=output_title)
     print('created: %sresults.html\n' % output_dir)
     if xml_report:
         print('created: %sresults.jtl' % output_dir)
